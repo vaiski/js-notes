@@ -54,3 +54,22 @@ The unary plus operator `+` is used to type cast a string to a decimal numeric v
 +"-56.3";  // => -56.3
 +"summer"; // => NaN
 ```
+
+
+## Checking for undefined
+
+Checking if a variable is undefined differs a bit depending on the scope of the variable. In local scope it is acceptable to use direct comparison (or logical double negation, see above), for example:
+
+```js
+function isNone(value) {
+  return value === undefined || value === null;
+}
+```
+
+In global scope, however, this is not possible but a type comparison should be used instead:
+
+```js
+if (typeof variable === "undefined") {
+  /* code */
+}
+```
