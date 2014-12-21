@@ -75,6 +75,41 @@ lampModule.stateString()
 
 ```
 
+## Module factory
+
+```js
+;(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
+    define(['exports'], function (exports) {
+      root.MyModule = factory(root, exports);
+    });
+  } else if (typeof exports !== "undefined") {
+    factory(root, exports);
+  } else {
+    root.MyModule = factory(root, {});
+  }
+})(this, function (root, MyModule) {
+  /* module definition */
+  return MyModule;
+});
+```
+
+```js
+;(function (define) {
+  define('id', function (require, exports) {
+    var library = require('library');
+    exports.name = value;
+  });
+})(typeof define === "function" && define.amd ? define : function (id, factory) {
+  if (typeof exports !== "undefined") {
+    factory(require, exports);
+  } else {
+    // TODO: come up with a good method for global function export
+  }
+});
+```
+
+
 
 ## See also
 
