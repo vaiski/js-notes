@@ -1,5 +1,7 @@
 # JavaScript idioms
 
+Here are described some idioms found in JavaScript code. Usually they are used to express a certain functionality in a shorter or more efficient way. All of these idioms are not always recommended because of their ambiguity or poor readability.
+
 
 ## Double negation (logical)
 
@@ -25,8 +27,30 @@ setAge(null);  // returns false
 setAge(42);  // returns true
 ```
 
+
 ## Double negation (bitwise)
 
-The double bitwise negation operator `~~` is sometimes used to implement rounding a number towards zero.
+The double bitwise negation operator `~~` is sometimes used to implement rounding a number towards zero. It also returns zero if the operand is not a number.
 
 It is faster than `Math.round` if you are dealing with positive numbers and faster than conditional use of `Math.floor` and `Math.ceil` if rounding towards zero is the desired functionality.
+
+```js
+~~3.85;     // => 3
+~~(-4.25);  // => 4
+~~true;     // => 0
+~~{};       // => 0
+~~"summer"; // => 0
+~~"12.43";  // => 12
+```
+
+
+## Unary plus operator
+
+The unary plus operator `+` is used to type cast a string to a decimal numeric value.
+
+```js
++"14.47";  // => 14.47
++"42";     // => 42
++"-56.3";  // => -56.3
++"summer"; // => NaN
+```
