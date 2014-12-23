@@ -19,7 +19,7 @@ var module = (function () {
 
 ### Example
 
-The following example shows the principles of the module pattern by simulating a lamp that can be turned on or off,  state toggled and its state printed as a string.
+The following example shows the principles of the module pattern by simulating a lamp that can be turned on or off,  state toggled and its state printed as a string. The example shows in fact a pattern called *revealing module pattern* in which all members are private until explicitly revealed.
 
 ```js
 var lampModule = (function () {
